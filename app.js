@@ -27,7 +27,6 @@ function marker(latlng){
     var znacznik = L.marker([latlng.lat,latlng.lng]).addTo(map)
     var to = znacznik.getLatLng()
     var odleglosc = from.distanceTo(to).toFixed(0)/1000 + "km"
-    znacznik.bindPopup(odleglosc).openPopup();
-    console.log()
+    L.polyline([from,to],{color:"red"}).addTo(map).bindTooltip(odleglosc, {permanent: true});
     
 }
